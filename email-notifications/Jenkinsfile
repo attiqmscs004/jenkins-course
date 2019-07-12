@@ -1,10 +1,10 @@
 node {
 
   // config 
-  def to = attiq.bhatti@ufone.com // emailextrecipients([
-          //[$class: 'CulpritsRecipientProvider'],
-          //[$class: 'DevelopersRecipientProvider'],
-          //[$class: 'RequesterRecipientProvider']
+  def to =  emailextrecipients([
+          [$class: 'CulpritsRecipientProvider'],
+          [$class: 'DevelopersRecipientProvider'],
+          [$class: 'RequesterRecipientProvider']
   ])
 
   // job
