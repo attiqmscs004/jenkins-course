@@ -16,7 +16,7 @@ job('NodeJS Docker example') {
     job('example') {
     publishers {
         extendedEmail {
-            recipientList('me@halfempty.org')
+            recipientList('attiq.bhatti@ufone.com')
             defaultSubject('Oops')
             defaultContent('Something broken')
             contentType('text/html')
