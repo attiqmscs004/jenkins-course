@@ -12,6 +12,29 @@ job('NodeJS Docker example') {
         nodejs('nodejs') // this is the name of the NodeJS installation in 
                          // Manage Jenkins -> Configure Tools -> NodeJS Installations -> Name
     }
+
+    job('example') {
+    publishers {
+        extendedEmail {
+            recipientList('me@halfempty.org')
+            defaultSubject('Oops')
+            defaultContent('Something broken')
+            contentType('text/html')
+            triggers {
+                beforeBuild()
+                stillUnstable {
+                    subject('Subject')
+                    content('Body')
+                    sendTo {
+                        developers()
+                        requester()
+                        culprits()
+                    }
+                }
+            }
+        }
+    }
+}
     steps {
         dockerBuildAndPublish {
             repositoryName('wardviaene/docker-nodejs-demo')
